@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/*IMPORT UTILITIES*/
+import { useState, useEffect } from 'react';
+import { useAppSelector, useAppDispatch } from './Global/Store/Hooks';
+import { Routes, Route } from 'react-router-dom';
+/*IMPORT COMPONENTS*/
+import WhatsApp from 'Components/Isolated/WhatsApp/WhatsApp';
+import Navbar from 'Scenes/Navbar/Navbar';
+import Home from 'Scenes/Home/Home';
+/*IMPORT CSS*/
+import { Box } from '@mui/material';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+   return (
+      <Box>
+         <Navbar />
+
+         <Routes>
+            <Route path='/' element={<Home />} />
+         </Routes>
+
+         <WhatsApp />
+      </Box>
+   );
+};
 
 export default App;
